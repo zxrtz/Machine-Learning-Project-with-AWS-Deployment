@@ -54,8 +54,17 @@ def get_recent_fights() :
     
 
     # make sure to deal with duplicate column names
-    recent_fights_df.columns = ['Date', 'Fighter 1', 'Result Fighter 1', 'Method / Round Fighter 1',
-       'Fighter 2', 'Result Fighter 2', 'Method / Round Fighter 2', 'Venue', 'Undercard fights']
+    recent_fights_df.columns = ['Date', 'fighter1', 'fighter1_result', 'method_or_round',
+       'fighter2', 'Result Fighter 2', 'Method / Round Fighter 2', 'Venue', 'Undercard fights']
+    
+    recent_fights_df = recent_fights_df.drop(columns=['Method / Round Fighter 2','Result Fighter 2'])
+
+    # add links
+    link_rows = recent_fights_table.find_all('a')
+    links = [link.get('href') for link in link_rows]
+    recent_fights_df['link'] = links
+
+
     
     print(recent_fights_df.columns)
     

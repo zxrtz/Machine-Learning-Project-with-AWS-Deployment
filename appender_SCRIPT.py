@@ -19,12 +19,12 @@ my_file_path = Path(curr_dir + "\\" + "fight_data.csv")
 # change file path later in AWS
 if not my_file_path.exists():
     new_data.to_csv(
-        "C:/Users/Dylan/Desktop/ROAD TO DATASCI/PYTHON/PYTHON PERSONAL PROJECTS/END-TO-END Boxing Predictions Project/fight_data.csv",
+        "C:/Users/Dylan/Desktop/ROAD TO DATASCI/PYTHON/PYTHON PERSONAL PROJECTS/END-TO-END Boxing Predictions Project/Machine-Learning-Project-with-AWS-Deployment/fight_data.csv",
         index=False
     )
 else:
     old_df = pd.read_csv(
-        "C:/Users/Dylan/Desktop/ROAD TO DATASCI/PYTHON/PYTHON PERSONAL PROJECTS/END-TO-END Boxing Predictions Project/fight_data.csv"
+        "C:/Users/Dylan/Desktop/ROAD TO DATASCI/PYTHON/PYTHON PERSONAL PROJECTS/END-TO-END Boxing Predictions Project/Machine-Learning-Project-with-AWS-Deployment/fight_data.csv"
     )
     # Concatenate and reset index to avoid duplicate index issues
     appended_df = pd.concat([old_df, new_data], axis=0)
