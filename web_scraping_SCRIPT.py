@@ -43,7 +43,6 @@ def get_recent_fights() :
 
         # get individual row to be appended
         individual_row_data = [data.text.strip() for data in row_data]
-        print(individual_row_data)
 
         if individual_row_data[len(individual_row_data) - 1] == '' :
             individual_row_data[len(individual_row_data) - 1] = 'NaN'
@@ -66,6 +65,6 @@ def get_recent_fights() :
 
 
     
-    print(recent_fights_df.columns)
+    scraper.close()
     
     return recent_fights_df
