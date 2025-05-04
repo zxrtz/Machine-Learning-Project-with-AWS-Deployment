@@ -1,4 +1,5 @@
 from web_scraping_SCRIPT import get_recent_fights
+from player_data_expansion import get_all_expanded_player_fight_data
 
 import pandas as pd
 import numpy as np
@@ -8,7 +9,7 @@ import io
 import os
 
 
-new_data = get_recent_fights()
+new_data = get_all_expanded_player_fight_data()
 
 # get current path of this file, set it to path
 curr_dir = os.path.dirname(os.path.abspath(''))

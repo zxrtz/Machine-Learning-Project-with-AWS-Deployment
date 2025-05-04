@@ -45,7 +45,7 @@ def get_recent_fights() :
         individual_row_data = [data.text.strip() for data in row_data]
 
         if individual_row_data[len(individual_row_data) - 1] == '' :
-            individual_row_data[len(individual_row_data) - 1] = 'NaN'
+            individual_row_data[len(individual_row_data) - 1] = pd.NA
 
         # append
         length = len(recent_fights_df)

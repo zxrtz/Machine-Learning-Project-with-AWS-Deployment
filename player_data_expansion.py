@@ -25,20 +25,20 @@ def get_all_expanded_player_fight_data() :
     ######################################
 
     # create cols for WDL
-    data['fighter1_record_wins'] = 'NaN'
-    data['fighter1_record_draws'] = 'NaN'
-    data['fighter1_record_losses'] = 'NaN'
-    data['fighter2_record_wins'] = 'NaN'
-    data['fighter2_record_draws'] = 'NaN'
-    data['fighter2_record_losses'] = 'NaN'
+    data['fighter1_record_wins'] = pd.NA
+    data['fighter1_record_draws'] = pd.NA
+    data['fighter1_record_losses'] = pd.NA
+    data['fighter2_record_wins'] = pd.NA
+    data['fighter2_record_draws'] = pd.NA
+    data['fighter2_record_losses'] = pd.NA
 
     # create cols for heights
-    data['fighter1_height_cm'] = 'NaN'
-    data['fighter2_height_cm'] = 'NaN'
+    data['fighter1_height_cm'] = pd.NA
+    data['fighter2_height_cm'] = pd.NA
 
     # create cols for KO percentages
-    data['fighter1_ko_percentage'] = 'NaN'
-    data['fighter2_ko_percentage'] = 'NaN'
+    data['fighter1_ko_percentage'] = pd.NA
+    data['fighter2_ko_percentage'] = pd.NA
 
     
 
@@ -74,7 +74,7 @@ def get_all_expanded_player_fight_data() :
         try : 
             fighter1_height_cm = int(fighter1_height.text.split()[3])
         except (IndexError, TypeError) :
-            fighter1_height_cm = 'NaN'
+            fighter1_height_cm = pd.NA
         
 
         # fighter 2
@@ -82,7 +82,7 @@ def get_all_expanded_player_fight_data() :
         try : 
             fighter2_height_cm = int(fighter2_height.text.split()[3])
         except (IndexError, TypeError) :
-            fighter2_height_cm = 'NaN'
+            fighter2_height_cm = pd.NA
 
         # append height to cols
         data.at[index, 'fighter1_height_cm'] = fighter1_height_cm
@@ -122,7 +122,7 @@ def get_all_expanded_player_fight_data() :
         append_fighter_phys_bio(soup, row_index)
         append_player_KO_perc(soup, row_index)
 
-        seconds = np.random.randint(3,7)
+        seconds = np.random.randint(1,3)
         time.sleep(seconds)
 
         row_index += 1
