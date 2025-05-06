@@ -40,6 +40,9 @@ def get_all_expanded_player_fight_data() :
     data['fighter1_ko_percentage'] = pd.NA
     data['fighter2_ko_percentage'] = pd.NA
 
+    # create cols for debut years
+    data['fighter1_debut'] = pd.NA
+    data['fighter2_debut'] = pd.NA
     
 
     ######################################
@@ -103,7 +106,32 @@ def get_all_expanded_player_fight_data() :
         data.at[index,'fighter1_ko_percentage'] = fighter1_ko_percentage
         data.at[index,'fighter2_ko_percentage'] = fighter2_ko_percentage
 
+    ######################################
+    # part 4: debut year
+    ######################################
+    def append_fighter_phys_bio(new_soup, index) : 
 
+        # get the data
+        class_data = soup.find_all(class_="stats-row__content text-center headings-text-color")
+
+        # fighter 1
+        fighter1_debut = class_data[20]
+        try : 
+            fighter1_debut = int(class_data[20].text.split()[0])
+        except (IndexError, TypeError) :
+            fighter1_debut = pd.NA
+        
+
+        # fighter 2
+        fighter2_debut = class_data[21]
+        try : 
+            fighter2_debut = int(fighter2_debut = class_data[21].text.split()[0])
+        except (IndexError, TypeError) :
+            fighter2_debut = pd.NA
+
+        # append height to cols
+        data.at[index, 'fighter1_height_cm'] = fighter1_debut
+        data.at[index, 'fighter2_height_cm'] = fighter2_debut
 
     ######################################
     # finally, append everything
@@ -126,6 +154,7 @@ def get_all_expanded_player_fight_data() :
         time.sleep(seconds)
 
         row_index += 1
+    
 
     scraper.close()
 
