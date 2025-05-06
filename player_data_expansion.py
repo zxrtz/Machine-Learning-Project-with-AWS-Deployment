@@ -53,12 +53,12 @@ def get_all_expanded_player_fight_data() :
         fighter2_WDL_record = win_draw_loss[1].text.strip().split('-')
 
         data.at[index,'fighter1_record_wins'] = fighter1_WDL_record[0]
-        data.at[index,'fighter1_record_draws'] = fighter1_WDL_record[1]
-        data.at[index,'fighter1_record_losses'] = fighter1_WDL_record[2]
+        data.at[index,'fighter1_record_losses'] = fighter1_WDL_record[1]
+        data.at[index,'fighter1_record_draws'] = fighter1_WDL_record[2]
 
         data.at[index,'fighter2_record_wins'] = fighter2_WDL_record[0]
-        data.at[index,'fighter2_record_draws'] = fighter2_WDL_record[1]
-        data.at[index,'fighter2_record_losses'] = fighter2_WDL_record[2]
+        data.at[index,'fighter2_record_losses'] = fighter2_WDL_record[1]
+        data.at[index,'fighter2_record_draws'] = fighter2_WDL_record[2]
 
 
 
