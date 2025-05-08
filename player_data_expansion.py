@@ -109,7 +109,7 @@ def get_all_expanded_player_fight_data() :
     ######################################
     # part 4: debut year
     ######################################
-    def append_fighter_phys_bio(new_soup, index) : 
+    def append_debut_year(new_soup, index) : 
 
         # get the data
         class_data = soup.find_all(class_="stats-row__content text-center headings-text-color")
@@ -125,13 +125,13 @@ def get_all_expanded_player_fight_data() :
         # fighter 2
         fighter2_debut = class_data[21]
         try : 
-            fighter2_debut = int(fighter2_debut = class_data[21].text.split()[0])
+            fighter2_debut = int(class_data[21].text.split()[0])
         except (IndexError, TypeError) :
             fighter2_debut = pd.NA
 
         # append height to cols
-        data.at[index, 'fighter1_height_cm'] = fighter1_debut
-        data.at[index, 'fighter2_height_cm'] = fighter2_debut
+        data.at[index, 'fighter1_debut'] = fighter1_debut
+        data.at[index, 'fighter2_debut'] = fighter2_debut
 
     ######################################
     # finally, append everything
@@ -149,6 +149,7 @@ def get_all_expanded_player_fight_data() :
         append_player_WDL_record(soup, row_index)
         append_fighter_phys_bio(soup, row_index)
         append_player_KO_perc(soup, row_index)
+        append_debut_year(soup, row_index)
 
         seconds = np.random.randint(1,3)
         time.sleep(seconds)
