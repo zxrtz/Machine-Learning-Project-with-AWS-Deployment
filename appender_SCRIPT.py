@@ -28,7 +28,7 @@ def expanded_player_fight_data_appender() :
             my_file_path
         )
         # Concatenate and reset index to avoid duplicate index issues
-        appended_df = pd.concat([old_df, new_data], axis=0)
+        appended_df = pd.concat([new_data,old_df], axis=0)
 
         # Drop duplicates and reset index
         appended_df = appended_df.drop_duplicates(keep='first')
