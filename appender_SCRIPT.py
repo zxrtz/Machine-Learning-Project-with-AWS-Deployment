@@ -15,7 +15,7 @@ def expanded_player_fight_data_appender() :
     curr_dir = os.path.dirname(os.path.abspath(''))
 
     # csv file path
-    my_file_path = Path(curr_dir + "\\END-TO-END Boxing Predictions Project\\Machine-Learning-Project-with-AWS-Deployment\\fight_data.csv")
+    my_file_path = Path(curr_dir + "fight_data.csv")
     
     # change file path later in AWS
     if not my_file_path.exists():
