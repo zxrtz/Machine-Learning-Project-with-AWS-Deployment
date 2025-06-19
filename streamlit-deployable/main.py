@@ -69,9 +69,13 @@ def read_data():
 
     # csv file path
     my_file_path = Path(curr_dir + "/train-data/fight_data.csv")
-
     df_init = pd.read_csv(my_file_path).fillna(pd.NA).drop(columns=["fighter2_ko_percentage","fighter1_ko_percentage"])
-    df_init = pd.concat([df_init,pd.read_csv("data/fight_data_backup_basic.csv")], axis=0)
+
+    # backup csv file path
+    backup_file_path = Path(curr_dir + "/train-data/fight_data_backup_basic.csv")
+    df_init = pd.concat([df_init,pd.read_csv(backup_file_path)], axis=0)
+
+    # clean a little
     df_init = df_init.drop_duplicates()
     df_essentials = df_init.drop(columns=['link','Venue','Date','Undercard fights','fighter1','fighter2'])
     df_staged_cleaning = df_essentials.copy()
