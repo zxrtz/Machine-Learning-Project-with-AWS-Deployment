@@ -1,4 +1,5 @@
 import streamlit as st
+from xgboost import XGBClassifier
 
 import pandas as pd
 import numpy as np
