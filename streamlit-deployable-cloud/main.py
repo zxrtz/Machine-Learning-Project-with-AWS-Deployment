@@ -10,11 +10,12 @@ from pathlib import Path
 st.write("""
 ## Boxing Machine Learning Predictions WebApp
 
-This app predicts **boxing match** outcomes using **Machine Learning**!  Predict wins, losses, and draws for your favorite boxers for upcoming matches!
+This app predicts **boxing match** outcomes using **Machine Learning** !  Predict wins, losses, and draws for your favorite boxers for upcoming matches!
          
 For accuracy, please make sure to **only use the official boxing undercard for each fight**.
          
-You may check upcoming undercards at https://box.live/fight-results/. Data was web scraped from this website in order to train the machine learning model.
+You may check upcoming undercards at https://box.live/fight-results/. 
+Data was web scraped from this website in order to train the machine learning (gradient boosting classifier) model.
          
 """)
 
