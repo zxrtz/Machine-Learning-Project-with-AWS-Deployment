@@ -155,8 +155,10 @@ prediction = np.argmax(prediction1_probas)
 # make predict button
 pred_button = st.button("Predict", type="primary")
 
-
 if pred_button:
+    
+    st.divider()
+
     # DISPLAY PRED
     # prediction is the label index, so use indexing to choose the correct species
     st.markdown('## Prediction')
@@ -167,11 +169,9 @@ if pred_button:
     fighter2_outcomes = np.array(['Loss ❌', 'Win 🏆', 'Draw 🟰'])
     st.markdown(f"### Fighter 2 **{fighter2_outcomes[prediction]}**")
 
+    st.divider()
 
-    st.subheader('Prediction probability for fighter 1:')
-    prediction_probas = pd.DataFrame(prediction1_probas, columns=["Win 🏆", "Loss ❌", "Draw 🟰"])
+    st.subheader('Prediction probabilities:')
+    prediction_probas = pd.DataFrame(prediction1_probas, columns=["Fighter 1 🏆", "Fighter 2 🏆", "Draw 🟰"])
     st.write(prediction_probas)
 
-    st.subheader('Prediction probability for fighter 1:')
-    prediction_probas = pd.DataFrame(prediction1_probas, columns=["Loss ❌", "Win 🏆", "Draw 🟰"])
-    st.write(prediction_probas)
