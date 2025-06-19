@@ -143,7 +143,7 @@ df_staged_swapping['fighter1_debut'] = fighter2_debut_temp
 df_pred2 = df_staged_swapping[:1].copy()
 
 curr_dir = os.getcwd()
-xgbc_path = curr_dir + '/models/basic_xgboost.pkl'
+xgbc_path = Path(curr_dir + '/models/basic_xgboost.pkl')
 load_xgbc = pickle.load(open(xgbc_path, 'rb'))
 
 
