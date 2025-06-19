@@ -69,11 +69,11 @@ def read_data():
     curr_dir = os.getcwd()
 
     # csv file path
-    my_file_path = Path(curr_dir + "/train-data/fight_data.csv")
+    my_file_path = Path(curr_dir + "/data/fight_data.csv")
     df_init = pd.read_csv(my_file_path).fillna(pd.NA).drop(columns=["fighter2_ko_percentage","fighter1_ko_percentage"])
 
     # backup csv file path
-    backup_file_path = Path(curr_dir + "/train-data/fight_data_backup_basic.csv")
+    backup_file_path = Path(curr_dir + "/data/fight_data_backup_basic.csv")
     df_init = pd.concat([df_init,pd.read_csv(backup_file_path)], axis=0)
 
     # clean a little
@@ -144,7 +144,7 @@ df_staged_swapping['fighter1_debut'] = fighter2_debut_temp
 df_pred2 = df_staged_swapping[:1].copy()
 
 curr_dir = os.getcwd()
-xgbc_path = Path(curr_dir + '/streamlit-deployable/models/basic_xgboost.pkl')
+xgbc_path = Path(curr_dir + '/models/basic_xgboost.pkl')
 load_xgbc = pickle.load(open(xgbc_path, 'rb'))
 
 
