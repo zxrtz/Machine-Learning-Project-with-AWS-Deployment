@@ -1,5 +1,6 @@
 import streamlit as st
-from xgboost import XGBClassifier
+import sklearn
+from sklearn.ensemble import GradientBoostingClassifier
 
 import pandas as pd
 import numpy as np
