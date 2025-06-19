@@ -15,7 +15,7 @@ This app predicts **boxing match** outcomes using **Machine Learning**!  Predict
 For accuracy, please make sure to **only use the official boxing undercard** when inputting data for your prediction.
          
 You may check upcoming fight undercards at https://box.live/fight-results/. 
-Data was web scraped from this website in order to train the machine learning (gradient boosting classifier) model.
+Data was web scraped from this website in order to train the **machine learning (gradient boosting classifier) model**.
          
 """)
 
