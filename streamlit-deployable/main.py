@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 
 import pickle
+import os
+from pathlib import Path
 
 st.write("""
 ## Boxing Machine Learning Predictions WebApp
@@ -61,7 +63,14 @@ def user_input_features():
 
 @st.cache_data
 def read_data():
-    df_init = pd.read_csv("data/fight_data.csv").fillna(pd.NA).drop(columns=["fighter2_ko_percentage","fighter1_ko_percentage"])
+
+    # get current path of this file, set it to path
+    curr_dir = os.getcwd()
+
+    # csv file path
+    my_file_path = Path(curr_dir + "/train-data/fight_data.csv")
+
+    df_init = pd.read_csv(my_file_path).fillna(pd.NA).drop(columns=["fighter2_ko_percentage","fighter1_ko_percentage"])
     df_init = pd.concat([df_init,pd.read_csv("data/fight_data_backup_basic.csv")], axis=0)
     df_init = df_init.drop_duplicates()
     df_essentials = df_init.drop(columns=['link','Venue','Date','Undercard fights','fighter1','fighter2'])
