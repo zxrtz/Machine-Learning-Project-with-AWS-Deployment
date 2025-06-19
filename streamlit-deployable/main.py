@@ -1,6 +1,4 @@
 import streamlit as st
-import sklearn
-from sklearn.ensemble import GradientBoostingClassifier
 
 import pandas as pd
 import numpy as np
