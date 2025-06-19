@@ -5,7 +5,7 @@ import time
 
 from bs4 import BeautifulSoup as bs
 
-from web_scraping_SCRIPT import get_recent_fights
+from base_web_scraper import get_recent_fights
 
 
 def get_all_expanded_player_fight_data() :

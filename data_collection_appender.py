@@ -1,5 +1,5 @@
-from web_scraping_SCRIPT import get_recent_fights
-from player_data_expansion import get_all_expanded_player_fight_data
+from base_web_scraper import get_recent_fights
+from data_collector_expansion import get_all_expanded_player_fight_data
 
 import pandas as pd
 import numpy as np
@@ -12,10 +12,10 @@ def expanded_player_fight_data_appender() :
     new_data = get_all_expanded_player_fight_data()
 
     # get current path of this file, set it to path
-    curr_dir = os.path.dirname(os.path.abspath(''))
+    curr_dir = os.getcwd()
 
     # csv file path
-    my_file_path = Path(curr_dir + "fight_data.csv")
+    my_file_path = Path(curr_dir + "/train-data/fight_data.csv")
     
     # change file path later in AWS
     if not my_file_path.exists():
