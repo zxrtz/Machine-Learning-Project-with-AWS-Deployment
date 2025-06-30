@@ -16,7 +16,8 @@ For accuracy, please make sure to **only use the official boxing undercard** whe
          
 You may check upcoming fight undercards at https://box.live/fight-results/. 
 Data was web scraped from this website in order to train the **machine learning (gradient boosting classifier) model**.
-         
+
+Check out this project on github! https://github.com/zxrtz/Boxing-Match-Machine-Learning-Project/tree/main
 """)
 
 st.divider()
